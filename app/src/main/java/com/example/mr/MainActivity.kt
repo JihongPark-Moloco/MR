@@ -3,6 +3,7 @@ package com.example.mr
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.DocumentReference
@@ -17,6 +18,7 @@ class MainActivity : AppCompatActivity() {
 
         buttonRoomEnter.setOnClickListener {
             val nextIntent = Intent(this, RoomActivity::class.java)
+            nextIntent.putExtra("room_num", roomNum.text.toString())
             startActivity(nextIntent)
         }
 /*
