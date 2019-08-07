@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools"
+                xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
                 android:id="@+id/rootView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -12,7 +12,7 @@
             android:layout_height="60dp"
             android:layout_centerInParent="true"
             android:contentDescription="@null"
-            android:src="@drawable/white_book_icon" />
+            app:srcCompat="@drawable/white_book_icon" android:visibility="visible"/>
     <TextView
             android:id="@+id/bookITextView"
             android:layout_width="wrap_content"
@@ -22,7 +22,7 @@
             android:layout_marginTop="5dp"
             android:text="@string/booki"
             android:textColor="@color/colorSplashText"
-            android:textSize="16sp" />
+            android:textSize="16sp" android:visibility="visible"/>
     <ProgressBar
             android:id="@+id/loadingProgressBar"
             style="?android:attr/progressBarStyleHorizontal"
@@ -33,7 +33,7 @@
             android:foregroundGravity="bottom"
             android:indeterminate="true"
             android:padding="0dp"
-            android:theme="@style/ProgressBarStyle" />
+            android:theme="@style/ProgressBarStyle" android:visibility="visible"/>
     <RelativeLayout
             android:id="@+id/afterAnimationView"
             android:layout_width="match_parent"
@@ -50,7 +50,7 @@
                 android:text="@string/welcome_back"
                 android:textColor="@color/colorBackground"
                 android:textSize="25sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"/>
         <TextView
                 android:id="@+id/readItTogetherTextView"
                 android:layout_width="match_parent"
@@ -59,7 +59,7 @@
                 android:layout_marginTop="10dp"
                 android:text="@string/read_it_together"
                 android:textColor="@color/colorAccent"
-                android:textSize="15sp" />
+                android:textSize="15sp"/>
         <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -74,7 +74,7 @@
                     android:hint="@string/email"
                     android:textColor="@color/colorTextView"
                     android:textColorHint="@color/colorAccent"
-                    android:textSize="15sp" />
+                    android:textSize="15sp"/>
             <EditText
                     android:id="@+id/passwordEditText"
                     android:layout_width="match_parent"
@@ -83,7 +83,7 @@
                     android:hint="@string/password"
                     android:textColor="@color/colorTextView"
                     android:textColorHint="@color/colorAccent"
-                    android:textSize="15sp" />
+                    android:textSize="15sp"/>
             <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -92,18 +92,16 @@
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/sign_up"
                         android:textColor="@color/colorTextView"
                         android:textSize="14sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold" android:id="@+id/signupText"/>
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="end|center_vertical"
-                        android:text="@string/forget_password"
                         android:textColor="@color/colorTextView"
                         android:textSize="14sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"/>
             </FrameLayout>
         </LinearLayout>
         <Button
@@ -116,20 +114,118 @@
                 android:text="@string/login"
                 android:textAllCaps="false"
                 android:textColor="@color/colorAccent"
-                android:textSize="16sp" />
+                android:textSize="16sp"/>
         <TextView
                 android:id="@+id/skipTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_marginBottom="10dp"
-                android:background="?android:attr/selectableItemBackground"
+                android:background="?attr/selectableItemBackground"
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="center"
                 android:padding="12dp"
-                android:text="@string/skip"
+                android:text="@string/gotosignin"
                 android:textColor="@color/colorTextView"
-                android:textSize="15sp" />
+                android:textSize="15sp"/>
+    </RelativeLayout>
+    <RelativeLayout
+            android:id="@+id/signupView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="130dp"
+            android:orientation="vertical"
+            android:visibility="gone">
+        <TextView
+                android:id="@+id/WelcomeTextView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/welcome_back2"
+                android:textColor="@color/colorBackground"
+                android:textSize="25sp"
+                android:textStyle="bold"/>
+        <TextView
+                android:id="@+id/readItTogetherTextView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/WelcomeTextView2"
+                android:layout_marginTop="10dp"
+                android:text="@string/notice"
+                android:textColor="@color/colorAccent"
+                android:textSize="15sp"/>
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/loginButton2"
+                android:layout_below="@+id/readItTogetherTextView2"
+                android:gravity="center"
+                android:orientation="vertical">
+            <EditText
+                    android:id="@+id/emailEditText2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/email2"
+                    android:textColor="@color/colorTextView"
+                    android:textColorHint="@color/colorAccent"
+                    android:textSize="15sp"/>
+            <EditText
+                    android:id="@+id/passwordEditText2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:hint="@string/password"
+                    android:textColor="@color/colorTextView"
+                    android:textColorHint="@color/colorAccent"
+                    android:textSize="15sp"/>
+            <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:padding="5dp" android:visibility="invisible">
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/sign_up"
+                        android:textColor="@color/colorTextView"
+                        android:textSize="14sp"
+                        android:textStyle="bold" android:visibility="gone"/>
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end|center_vertical"
+                        android:text="@string/forget_password"
+                        android:textColor="@color/colorTextView"
+                        android:textSize="14sp"
+                        android:textStyle="bold" android:visibility="invisible"/>
+            </FrameLayout>
+        </LinearLayout>
+        <Button
+                android:id="@+id/loginButton2"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_above="@+id/skipTextView2"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/button_drawable"
+                android:text="@string/sign_up"
+                android:textAllCaps="false"
+                android:textColor="@color/colorAccent"
+                android:textSize="16sp"/>
+        <TextView
+                android:id="@+id/skipTextView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="10dp"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:padding="12dp"
+                android:text="@string/gotologin"
+                android:textColor="@color/colorTextView"
+                android:textSize="15sp"/>
     </RelativeLayout>
 </RelativeLayout>
