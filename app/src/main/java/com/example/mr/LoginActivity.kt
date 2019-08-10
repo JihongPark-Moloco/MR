@@ -15,7 +15,7 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        object : CountDownTimer(3000, 1000) {
+        object : CountDownTimer(2000, 1000) {
             override fun onFinish() {
                 bookITextView.visibility = View.GONE
                 loadingProgressBar.visibility = View.GONE
