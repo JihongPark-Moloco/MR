@@ -50,7 +50,7 @@ class RoomActivity : AppCompatActivity() {
         recyclerView!!.setHasFixedSize(true)
 
 
-        data_ref.child("Room").child(room_num).addChildEventListener(object : ChildEventListener {
+        data_ref.child("Room").child(room_num!!).addChildEventListener(object : ChildEventListener {
             override fun onCancelled(p0: DatabaseError) {
 
                 TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
@@ -83,7 +83,7 @@ class RoomActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            data_ref.child("Room").child(room_num).push()
+            data_ref.child("Room").child(room_num!!).push()
                 .setValue(Message(selfID, msgInput, "time", selfID).makeMessageData())
 
             editWindow!!.setText("")

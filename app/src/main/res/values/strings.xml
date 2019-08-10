@@ -1,25 +1,16 @@
 <resources>
-    <string name="app_name">MR</string>
+    <string name="app_name">SplashScreenDemo</string>
     <string name="booki">BookI</string>
-    <string name="welcome_back">Welcome Back</string>
+    <string name="welcome_back">환영합니다</string>
+    <string name="welcome_back2">회원가입</string>
     <string name="read_it_together">Read it together</string>
-    <string name="skip">Skip</string>
+    <string name="gotosignin">Go To Signup Page</string>
+    <string name="gotologin">Go To Login Page</string>
     <string name="login">Login</string>
     <string name="email">Email</string>
+    <string name="email2">Email@pusan.ac.kr</string>
     <string name="password">Password</string>
-    <string name="sign_up">Sign up</string>
+    <string name="sign_up">Signup</string>
     <string name="forget_password">Forget Password.?</string>
-
-    <string name="Username">Username</string>
-    <string name="Password">Password</string>
-    <string name="RememberMe">Remember Me</string>
-    <string name="Login">Login</string>
-    <string name="Register">Register</string>
-    <string name="Logo">Logo</string>
-    <string name="FirstName">FirstName</string>
-    <string name="LastName">LastName</string>
-    <string name="Email">Email</string>
-    <string name="ConfirmEmailAddress">Confirm Email Address</string>
-    <string name="SignUp">Sign Up</string>
-    <string name="registrationPage">Registration Page</string>
+    <string name="notice">부산대학교 메일계정만 입력가능합니다!!</string>
 </resources>

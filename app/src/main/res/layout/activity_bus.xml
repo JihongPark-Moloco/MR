@@ -6,7 +6,6 @@
              android:orientation="vertical"
              android:background="#EEEEEE">
 
-
     <LinearLayout
             android:layout_gravity="bottom"
             android:gravity="bottom"
@@ -14,10 +13,14 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+        <RelativeLayout
+                android:id="@+id/map_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
         <View
                 android:layout_width="match_parent"
                 android:layout_height="0.1dp"
-                android:layout_marginTop="50dp"
                 android:background="#ACACAC"/>
 
         <LinearLayout
@@ -32,7 +35,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_weight="1"
-                    android:background="#007AFF"
                     android:orientation="vertical">
 
                 <ImageView
@@ -49,7 +51,7 @@
                         android:letterSpacing="0.1"
                         android:text="Contact"
                         android:textAlignment="center"
-                        android:textColor="#fff"
+                        android:textColor="#000"
                         android:textSize="12dp"/>
             </LinearLayout>
 
@@ -58,16 +60,11 @@
                     android:layout_height="50dp"
                     android:background="#ACACAC"/>
 
-            <View
-                    android:layout_width="0.1dp"
-                    android:layout_height="50dp"
-                    android:background="#ACACAC"/>
-
-
             <LinearLayout
                     android:id="@+id/profile"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
+                    android:background="#007AFF"
                     android:layout_weight="1"
                     android:orientation="vertical">
 
@@ -91,6 +88,13 @@
                         android:textSize="12dp"/>
 
             </LinearLayout>
+
+            <View
+                    android:layout_width="0.1dp"
+                    android:layout_height="50dp"
+                    android:background="#ACACAC"/>
+
+
             <LinearLayout
                     android:id="@+id/album"
                     android:layout_width="match_parent"
