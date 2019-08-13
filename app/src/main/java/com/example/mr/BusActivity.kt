@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.app.ActivityCompat
 import net.daum.mf.map.api.MapView
 
 
@@ -18,5 +19,11 @@ class BusActivity : AppCompatActivity() {
         val mapViewContainer = findViewById<ViewGroup>(R.id.map_view)
         mapViewContainer.addView(mapView)
 
+    }
+
+    override fun onBackPressed() {
+        ActivityCompat.finishAffinity(this)
+        System.runFinalization()
+        System.exit(0)
     }
 }

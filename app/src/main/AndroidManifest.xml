@@ -13,7 +13,7 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -21,10 +21,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".RoomActivity"></activity>
-        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".MainActivity"></activity>
         <activity android:name=".BusActivity"></activity>
 
-        <meta-data android:name="com.kakao.sdk.AppKey" android:value="4efb5277236b3806a73ef84ff377b40a"/>
+        <meta-data android:name="com.kakao.sdk.AppKey" android:value="HDJt97aE8AgofdUoZ3RzUXh0RwE="/>
     </application>
 
 </manifest>

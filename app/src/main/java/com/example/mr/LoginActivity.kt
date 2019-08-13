@@ -28,6 +28,12 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        val auth = FirebaseAuth.getInstance()
+        if (auth.currentUser != null){
+            val nextIntent = Intent(this, MainActivity::class.java)
+            startActivity(nextIntent)
+        }
+
         try {
             val info = packageManager.getPackageInfo(packageName, PackageManager.GET_SIGNATURES)
             for (signature in info.signatures) {
@@ -71,7 +77,7 @@ class LoginActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            val auth = FirebaseAuth.getInstance()
+
             auth.signInWithEmailAndPassword(email, passwd)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
