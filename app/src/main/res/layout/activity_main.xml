@@ -1,164 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
-             android:layout_height="match_parent"
+             android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
              android:orientation="vertical"
              android:background="#EEEEEE">
 
 
     <LinearLayout
-            android:layout_gravity="bottom"
-            android:gravity="bottom"
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
+            android:layout_height="match_parent">
+        <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" tools:srcCompat="@drawable/image2"
+                android:id="@+id/imageView" android:scaleType="centerCrop" app:srcCompat="@drawable/image2"/>
         <View
                 android:layout_width="match_parent"
-                android:layout_height="0.1dp"
-                android:layout_marginTop="50dp"
-                android:background="#ACACAC"/>
-
+                android:layout_height="2dp" android:id="@+id/view"
+                android:background="@color/grey_800" android:layout_marginTop="15dp" android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp" android:layout_marginBottom="10dp"/>
         <LinearLayout
-                android:id="@+id/here"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="#fff"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:orientation="horizontal">
 
-            <LinearLayout
-                    android:id="@+id/contact"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
+            <TextView
                     android:layout_weight="1"
-                    android:background="#007AFF"
-                    android:orientation="vertical">
-
-                <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="7dp"
-                        android:background="@drawable/ic_people"/>
-
-                <customfonts.MyTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:letterSpacing="0.1"
-                        android:text="Contact"
-                        android:textAlignment="center"
-                        android:textColor="#fff"
-                        android:textSize="12dp"/>
-            </LinearLayout>
-
-            <View
-                    android:layout_width="0.1dp"
-                    android:layout_height="50dp"
-                    android:background="#ACACAC"/>
-
-            <View
-                    android:layout_width="0.1dp"
-                    android:layout_height="50dp"
-                    android:background="#ACACAC"/>
-
-
-            <LinearLayout
-                    android:id="@+id/profile"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                <ImageView
-
-                        android:layout_width="15dp"
-                        android:layout_height="15dp"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="10dp"
-                        android:background="@drawable/ic_profile"/>
-
-                <customfonts.MyTextView
-
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:letterSpacing="0.1"
-                        android:text="Profile"
-                        android:textAlignment="center"
-                        android:textColor="#000"
-                        android:textSize="12dp"/>
-
-            </LinearLayout>
-            <LinearLayout
-                    android:id="@+id/album"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                <ImageView
-
-                        android:layout_width="15dp"
-                        android:layout_height="15dp"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="10dp"
-                        android:background="@drawable/ic_photo"/>
-
-                <customfonts.MyTextView
-
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:letterSpacing="0.1"
-                        android:text="Album"
-                        android:textAlignment="center"
-                        android:textColor="#000"
-                        android:textSize="12dp"/>
-
-            </LinearLayout>
-
-            <View
-                    android:layout_width="0.1dp"
-                    android:layout_height="50dp"
-                    android:background="#ACACAC"/>
-
-
-            <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                <ImageView
-
-                        android:layout_width="15dp"
-                        android:layout_height="15dp"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="10dp"
-                        android:background="@drawable/ic_mark"/>
-
-                <customfonts.MyTextView
-                        android:id="@+id/more"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:letterSpacing="0.1"
-                        android:text="More"
-                        android:textAlignment="center"
-                        android:textColor="#000"
-                        android:textSize="12dp"/>
-
-            </LinearLayout>
-
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/latto_font"
+                    android:text="Categories"
+                    android:textSize="17sp"/>
 
         </LinearLayout>
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
 
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="horizontal">
+
+
+                <LinearLayout
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" android:gravity="center">
+
+                    <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent" android:gravity="center" android:paddingRight="20dp"
+                            android:paddingLeft="20dp" android:id="@+id/map_button">
+                        <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:scaleType="centerCrop"
+                                android:layout_gravity="center"
+                                app:srcCompat="@drawable/ic_map"/>
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/black"
+                                android:fontFamily="@font/latto_font"
+                                android:textSize="12sp"
+                                android:text="Map"
+                                android:gravity="center"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="3dp"/>
+                    </LinearLayout>
+
+
+                </LinearLayout>
+                <LinearLayout
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                    <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center"
+                            app:srcCompat="@android:drawable/btn_star"/>
+
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/latto_font"
+                            android:textSize="12sp"
+                            android:text="Marketing"
+                            android:gravity="center"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="3dp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                    <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_mark" app:srcCompat="@android:drawable/sym_def_app_icon"/>
+
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/latto_font"
+                            android:textSize="12sp"
+                            android:text="Content"
+                            android:gravity="center"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="3dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
     </LinearLayout>
 
-
+    <uk.co.markormesher.android_fab.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:buttonPosition="bottom|end"/>
 </FrameLayout>
 
 

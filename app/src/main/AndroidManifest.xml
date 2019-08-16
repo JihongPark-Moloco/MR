@@ -23,6 +23,8 @@
         <activity android:name=".RoomActivity"></activity>
         <activity android:name=".MainActivity"></activity>
         <activity android:name=".BusActivity"></activity>
+        <activity android:name=".SignUpActivity"></activity>
+        <activity android:name=".SignInActivity"></activity>
 
         <meta-data android:name="com.kakao.sdk.AppKey" android:value="HDJt97aE8AgofdUoZ3RzUXh0RwE="/>
     </application>
