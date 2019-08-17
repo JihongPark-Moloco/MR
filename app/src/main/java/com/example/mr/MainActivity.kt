@@ -13,7 +13,9 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
+import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.iid.FirebaseInstanceId
 import kotlinx.android.synthetic.main.activity_main.*
 import uk.co.markormesher.android_fab.FloatingActionButton
 import uk.co.markormesher.android_fab.SpeedDialMenuAdapter
@@ -34,8 +36,27 @@ class MainActivity : AppCompatActivity() {
         fab.setContentCoverColour(0xccffffff.toInt())
         fab.speedDialMenuAdapter = speedDialMenuAdapter
 
+        FirebaseInstanceId.getInstance().instanceId
+            .addOnCompleteListener(OnCompleteListener { task ->
+                if (!task.isSuccessful) {
+                    Log.w("Firebase token", "getInstanceId failed", task.exception)
+                    return@OnCompleteListener
+                }
+
+                // Get new Instance ID token
+                val token = task.result?.token
+
+                // Log and toast
+                Log.d("Firebase token", token!!)
+            })
+
         map_button.setOnClickListener {
             val nextIntent = Intent(this@MainActivity, BusActivity::class.java)
+            startActivity(nextIntent)
+        }
+
+        chat_button.setOnClickListener {
+            val nextIntent = Intent(this@MainActivity, RoomActivity::class.java)
             startActivity(nextIntent)
         }
     }

@@ -26,7 +26,13 @@
         <activity android:name=".SignUpActivity"></activity>
         <activity android:name=".SignInActivity"></activity>
 
-        <meta-data android:name="com.kakao.sdk.AppKey" android:value="HDJt97aE8AgofdUoZ3RzUXh0RwE="/>
+        <meta-data android:name="com.kakao.sdk.AppKey" android:value="4efb5277236b3806a73ef84ff377b40a"/>
+        <service
+                android:name=".MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>
