@@ -9,6 +9,10 @@ import android.util.Log
 import androidx.core.app.NotificationCompat
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
+import android.app.ActivityManager
+import android.app.Activity
+
+
 
 class MyFirebaseMessagingService : FirebaseMessagingService() {
 
@@ -28,6 +32,9 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
      */
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
         Log.d(TAG, "From: " + remoteMessage.from)
+
+
+        val manager = getSystemService(Activity.ACTIVITY_SERVICE) as ActivityManager
 
         if(remoteMessage.notification != null) {
             Log.d(TAG, "Notification Message Body: ${remoteMessage.notification?.body}")

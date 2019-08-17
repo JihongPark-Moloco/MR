@@ -8,6 +8,10 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.android.volley.Request
+import com.android.volley.Response
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.database.ChildEventListener
 import com.google.firebase.database.DataSnapshot
@@ -15,12 +19,13 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.iid.FirebaseInstanceId
 import kotlinx.android.synthetic.main.activity_room.*
+import org.json.JSONObject
 
 
 class RoomActivity : AppCompatActivity() {
 
     var my_intent: Intent? = null
-    val selfID = "ID001"
+    val selfID = "ABC008"
 
     var msgList = arrayListOf<Message>(
     )
@@ -33,10 +38,8 @@ class RoomActivity : AppCompatActivity() {
 
         my_intent = intent
 
-        var room_num = my_intent!!.getStringExtra("room_num")
-        var database = FirebaseDatabase.getInstance()
-        var data_ref = database.getReference("Chat")
-
+        //var room_num = my_intent!!.getStringExtra("room_num")
+        //var data_ref = database.getReference("Chat")
 
         recyclerView = findViewById(R.id.recyclerChat)
         editWindow = findViewById(R.id.editWriteMessage)
@@ -52,33 +55,28 @@ class RoomActivity : AppCompatActivity() {
         recyclerView!!.layoutManager = lm
         recyclerView!!.setHasFixedSize(true)
 
+        val queue = Volley.newRequestQueue(this)
+        val url = "http://164.125.234.241/do.php"
 
-        data_ref.child("Room").child(room_num!!).addChildEventListener(object : ChildEventListener {
-            override fun onCancelled(p0: DatabaseError) {
+        val stringRequest = StringRequest(
+            Request.Method.GET, url,
+            Response.Listener<String> { response ->
+                var json = JSONObject(response.replace("<pre>", "").replace("</pre>",""))
+                var data = json.getJSONArray("result")
+                for (i in 0 until data.length()) {
+                    var item = JSONObject(data.get(i).toString())
 
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                    msgAdapter.addData(0, Message(item, selfID))
+                    recyclerView!!.scrollToPosition(0)
+                }
+            },
+            Response.ErrorListener { response ->
+                //textView.text = "That didn't work!"
             }
+        )
 
-            override fun onChildMoved(p0: DataSnapshot, p1: String?) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-            }
+        queue.add(stringRequest)
 
-            override fun onChildChanged(p0: DataSnapshot, p1: String?) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-            }
-
-            override fun onChildAdded(p0: DataSnapshot, p1: String?) {
-                var msgData = p0.getValue<MessageData>(MessageData::class.java)
-                //Log.d("Coding", "Received!! " + msgData!!.text.toString())
-                msgAdapter.addData(0, Message(msgData!!, selfID = selfID))
-                recyclerView!!.scrollToPosition(0)
-            }
-
-            override fun onChildRemoved(p0: DataSnapshot) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-            }
-
-        })
 
         btnSend.setOnClickListener {
             var msgInput = editWindow!!.text.toString()
@@ -86,8 +84,8 @@ class RoomActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            data_ref.child("Room").child(room_num!!).push()
-                .setValue(Message(selfID, msgInput, "time", selfID).makeMessageData())
+            //data_ref.child("Room").child(room_num!!).push()
+             //   .setValue(Message(selfID, msgInput, "time", selfID).makeMessageData())
 
             editWindow!!.setText("")
             recyclerView!!.scrollToPosition(0)

@@ -17,8 +17,8 @@ class QuickAdapter(msgList: ArrayList<Message>) :
 
     override fun convert(helper: BaseViewHolder?, item: Message?) {
         when(helper!!.itemViewType){
-            Message.ME -> helper.setText(R.id.textContentUser, item!!.text)
-            Message.FRIEND -> helper.setText(R.id.textContentFriend, item!!.text)
+            Message.ME -> helper.setText(R.id.textContentUser, item!!.msg)
+            Message.FRIEND -> helper.setText(R.id.textContentFriend, item!!.msg)
         }
     }
 

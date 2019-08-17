@@ -1,36 +1,40 @@
 package com.example.mr
 
+import android.util.Log
 import com.chad.library.adapter.base.entity.MultiItemEntity
+import org.json.JSONObject
 
 class Message : MultiItemEntity {
     private var itemType: Int = 0
-    var senderID: String? = ""
-    var text: String? = ""
-    var sendTime: String? = ""
+    var send_time: String? = ""
+    var sender: String? = ""
+    var msg: String? = ""
 
-    constructor(senderID: String, text: String, sendTime: String, selfID: String) {
-        this.senderID = senderID
-        this.text = text
-        this.sendTime = sendTime
+    constructor(send_time: String, sender: String, msg: String, selfID: String, senderID: String) {
+        this.send_time = send_time
+        this.sender = sender
+        this.msg = msg
 
-        if(senderID == selfID){
+        if (senderID == selfID) {
             itemType = 1
-        }else{
+        } else {
             itemType = 2
         }
     }
 
-    constructor(msgData: MessageData, selfID: String){
-        this.senderID = msgData.senderID
-        this.text = msgData.text
-        this.sendTime = msgData.sendTime
+    constructor(item: JSONObject, selfID: String) {
+        this.send_time = item["send_timed"].toString()
+        this.sender = item["sender"].toString()
+        this.msg = item["msg"].toString()
+        var senderID = item["sender"].toString()
 
-        if(senderID == selfID){
+        if (senderID == selfID) {
             itemType = 1
-        }else{
+        } else {
             itemType = 2
         }
     }
+
 
     override fun getItemType(): Int {
         return itemType
@@ -39,9 +43,5 @@ class Message : MultiItemEntity {
     companion object {
         val ME = 1
         val FRIEND = 2
-    }
-
-    fun makeMessageData(): MessageData{
-        return MessageData(senderID = senderID!!,text =  text!!,sendTime =  sendTime!!)
     }
 }
