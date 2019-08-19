@@ -23,7 +23,7 @@ class Message : MultiItemEntity {
     }
 
     constructor(item: JSONObject, selfID: String) {
-        this.send_time = item["send_timed"].toString()
+        this.send_time = item["send_time"].toString()
         this.sender = item["sender"].toString()
         this.msg = item["msg"].toString()
         var senderID = item["sender"].toString()
