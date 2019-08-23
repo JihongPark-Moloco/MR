@@ -26,6 +26,8 @@
         <activity android:name=".BusActivity"></activity>
         <activity android:name=".SignUpActivity"></activity>
         <activity android:name=".SignInActivity"></activity>
+        <activity android:name=".BusPopupActivity"
+            android:theme="@android:style/Theme.Dialog"/>
 
         <meta-data android:name="com.kakao.sdk.AppKey" android:value="4efb5277236b3806a73ef84ff377b40a"/>
         <service

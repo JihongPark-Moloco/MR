@@ -28,6 +28,19 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        try {
+            val info = packageManager.getPackageInfo(packageName, PackageManager.GET_SIGNATURES)
+            for (signature in info.signatures) {
+                var md = MessageDigest.getInstance("SHA")
+                md.update(signature.toByteArray())
+                val something = String(Base64.encode(md.digest(), 0))
+                Log.d("Hash key", something)
+            }
+        } catch (e: Exception) {
+            // TODO Auto-generated catch block
+            Log.e("name not found", e.toString())
+        }
+
         val fab = findViewById(R.id.fab) as FloatingActionButton
         fab.setInternalOffsetBottom(40.0f) // pixels
         fab.setInternalOffsetRight(40.0f)

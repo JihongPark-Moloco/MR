@@ -48,14 +48,20 @@ class BusActivity : AppCompatActivity() {
         }
 
         override fun onMenuItemClick(position: Int): Boolean {
-            Toast.makeText(this@BusActivity, "$position is selected", Toast.LENGTH_LONG).show()
+            when(position){
+                0 -> {
+                    val nextIntent = Intent(this@BusActivity, BusPopupActivity::class.java)
+                    startActivity(nextIntent)
+                }
+            }
+            //Toast.makeText(this@BusActivity, "$position is selected", Toast.LENGTH_LONG).show()
             return true
         }
 
         override fun getBackgroundColour(position: Int): Int = when (position) {
             0 ->  Color.argb(255, 255, 255, 255)
             1 ->  Color.argb(255, 0, 0, 0)
-            else -> Color.argb(255, 255, 255, 255)
+            else -> Color.argb(0, 0, 0, 0)
         }
 
         override fun fabRotationDegrees(): Float = 135F
