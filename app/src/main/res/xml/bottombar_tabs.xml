@@ -1,0 +1,10 @@
+<tabs>
+    <tab
+            id="@+id/tab_mr_cam"
+            icon="@drawable/ic_arrow_left"
+            title="밀양 -> 부산대" />
+    <tab
+            id="@+id/tab_cam_mr"
+            icon="@drawable/ic_arrow_right"
+            title="부신대 -> 밀양" />
+</tabs>
