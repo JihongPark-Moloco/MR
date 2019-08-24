@@ -2,10 +2,17 @@ package com.example.mr
 
 import android.app.Activity
 import android.os.Bundle
+import android.util.Log
 import android.view.Window
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.roughike.bottombar.BottomBar
+import androidx.annotation.IdRes
+import com.roughike.bottombar.OnTabSelectListener
+
+
 
 class BusPopupActivity : Activity(){
     var recyclerView: RecyclerView? = null
@@ -13,6 +20,7 @@ class BusPopupActivity : Activity(){
     var button_cam_mr: TextView? = null
     var button_mr_cam: TextView? = null
     var bool_cam_mr = false
+    var bottomBar: BottomBar? = null
 
     var busList_mr_cam = arrayListOf(
         Bus("6:40", "6:50", "1용성"),
@@ -91,6 +99,14 @@ class BusPopupActivity : Activity(){
         button_mr_cam = findViewById(R.id.button_mr_cam)
         button_cam_mr = findViewById(R.id.button_cam_mr)
 
+//        bottomBar = findViewById(R.id.bottomBar)
+//        bottomBar!!.setOnTabSelectListener { tabId ->
+//            when(tabId){
+//                R.id.tab_mr_cam -> Toast.makeText(this, "clicked1", Toast.LENGTH_LONG).show()
+//                R.id.tab_cam_mr -> Toast.makeText(this, "clicked2", Toast.LENGTH_LONG).show()
+//            }
+//        }
+
         recyclerView = findViewById(R.id.recycler_item_bus)
 
         busAdapter = BusListAdapter(busList_mr_cam)
@@ -102,8 +118,7 @@ class BusPopupActivity : Activity(){
 
         var lm = LinearLayoutManager(this)
 
-        recyclerView!!.layoutManager = lm
-        recyclerView!!.setHasFixedSize(true)
+        recyclerView!!.layoutManager = lm!!
 
         button_cam_mr!!.setOnClickListener {change_list(true)}
         button_mr_cam!!.setOnClickListener {change_list(false)}
@@ -112,33 +127,53 @@ class BusPopupActivity : Activity(){
     }
 
     fun change_list(cam_mr:Boolean){
+        Log.d("bool", "cam_mr is $cam_mr")
+        Log.d("bool", "bool_cam_mr is $bool_cam_mr")
         if (bool_cam_mr != cam_mr){
             if(cam_mr){
+                Log.d("bool", "do #1")
                 busAdapter = BusListAdapter(busList_cam_mr)
                 busAdapter!!.openLoadAnimation()
                 busAdapter!!.notifyDataSetChanged()
 
                 recyclerView!!.adapter=busAdapter
 
-                button_mr_cam!!.setBackgroundColor(R.color.white!!)
-                button_mr_cam!!.setTextColor(R.color.black!!)
+                var lm = LinearLayoutManager(this)
 
-                button_cam_mr!!.setBackgroundColor(R.color.red!!)
-                button_cam_mr!!.setTextColor(R.color.white!!)
+                recyclerView!!.layoutManager = lm
+
+                bool_cam_mr = !bool_cam_mr
+
+                button_mr_cam!!.setBackgroundResource(R.color.white!!)
+               // button_mr_cam!!.setTextColor(R.color.black!!)
+                button_mr_cam!!.setTextColor(0xff000000
+
+                    .toInt())
+
+                button_cam_mr!!.setBackgroundResource(R.color.red!!)
+                //button_cam_mr!!.setTextColor(R.color.white!!)
+                button_cam_mr!!.setTextColor(0xffffffff.toInt())
             } else {
+                Log.d("bool", "do #2")
                 busAdapter = BusListAdapter(busList_mr_cam)
                 busAdapter!!.openLoadAnimation()
                 busAdapter!!.notifyDataSetChanged()
 
-                recyclerView!!.adapter = busAdapter
+                recyclerView!!.adapter=busAdapter
+
+                var lm = LinearLayoutManager(this)
+
+                recyclerView!!.layoutManager = lm
 
                 bool_cam_mr = !bool_cam_mr
 
-                button_mr_cam!!.setBackgroundColor(R.color.red!!)
-                button_mr_cam!!.setTextColor(R.color.white!!)
+                button_mr_cam!!.setBackgroundResource(R.color.red!!)
+                //button_mr_cam!!.setTextColor(R.color.white!!)
+                button_mr_cam!!.setTextColor(0xffffffff.toInt())
 
-                button_mr_cam!!.setBackgroundColor(R.color.white!!)
-                button_mr_cam!!.setTextColor(R.color.black!!)
+                button_cam_mr!!.setBackgroundResource(R.color.white!!)
+                //button_cam_mr!!.setTextColor(R.color.black!!)
+                button_cam_mr!!.setTextColor(0xff000000.toInt())
             }
         }
     }

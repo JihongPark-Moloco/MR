@@ -29,8 +29,8 @@ class BusActivity : AppCompatActivity() {
         val fab = findViewById(R.id.fab) as FloatingActionButton
         fab.setInternalOffsetBottom(40.0f) // pixels
         fab.setButtonIconResource(R.drawable.ic_add)
-        fab.setButtonBackgroundColour(0xffff9900.toInt())
-        fab.setContentCoverColour(0xccffffff.toInt())
+        fab.setButtonBackgroundColour(0x00ff9900.toInt())
+        fab.setContentCoverColour(0x00ffffff.toInt())
         fab.speedDialMenuAdapter = speedDialMenuAdapter
 
         fab.bringToFront()
@@ -59,8 +59,8 @@ class BusActivity : AppCompatActivity() {
         }
 
         override fun getBackgroundColour(position: Int): Int = when (position) {
-            0 ->  Color.argb(255, 255, 255, 255)
-            1 ->  Color.argb(255, 0, 0, 0)
+            0 ->  Color.argb(0, 255, 255, 255)
+            1 ->  Color.argb(0, 0, 0, 0)
             else -> Color.argb(0, 0, 0, 0)
         }
 
