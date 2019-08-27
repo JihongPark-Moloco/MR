@@ -54,57 +54,19 @@ class BusPopupActivity : Activity() {
         Log.d("bool", "bool_cam_mr is $bool_cam_mr")
         if (bool_cam_mr != cam_mr) {
             if (cam_mr) {
-                Log.d("bool", "do #1")
-                when (season) {
-                    NORMAL_ON -> {
-                        busAdapter = BusListAdapter(busList_normal_cam_mr)
-                        busAdapter!!.openLoadAnimation()
-                        busAdapter!!.notifyDataSetChanged()
-                        busAdapter!!.setOnItemClickListener { adapter, view, position ->
-                            Log.d("bool", "cam_mr is $position")
-                            val intent = Intent()
-                            intent.putExtra("line", busList_normal_cam_mr[position].line_num)
-                            setResult(RESULT_OK, intent)
-                            finish()
-                        }
-                    }
-                    NORMAL_CAM_VAC -> {
-                        busAdapter = BusListAdapter(busList_cam_vac_cam_mr)
-                        busAdapter!!.openLoadAnimation()
-                        busAdapter!!.notifyDataSetChanged()
-                        busAdapter!!.setOnItemClickListener { adapter, view, position ->
-                            Log.d("bool", "cam_mr is $position")
-                            val intent = Intent()
-                            intent.putExtra("line", busList_cam_vac_mr_cam[position].line_num)
-                            setResult(RESULT_OK, intent)
-                            finish()
-                        }
-                    }
-                    NORMAL_ALL_VAC -> {
-                        busAdapter = BusListAdapter(busList_holiNall_cam_mr)
-                        busAdapter!!.openLoadAnimation()
-                        busAdapter!!.notifyDataSetChanged()
-                        busAdapter!!.setOnItemClickListener { adapter, view, position ->
-                            Log.d("bool", "cam_mr is $position")
-                            val intent = Intent()
-                            intent.putExtra("line", busList_holiNall_mr_cam[position].line_num)
-                            setResult(RESULT_OK, intent)
-                            finish()
-                        }
-                    }
-                    HOLI_ALL -> {
-                        busAdapter = BusListAdapter(busList_holiNall_cam_mr)
-                        busAdapter!!.openLoadAnimation()
-                        busAdapter!!.notifyDataSetChanged()
-                        busAdapter!!.setOnItemClickListener { adapter, view, position ->
-                            Log.d("bool", "cam_mr is $position")
-                            val intent = Intent()
-                            intent.putExtra("line", busList_holiNall_mr_cam[position].line_num)
-                            setResult(RESULT_OK, intent)
-                            finish()
-                        }
-                    }
-                    else -> finish()
+                var db = MyDatabase(this)
+                var BusList = db.BusTime(season, cam_mr)
+                busAdapter = BusListAdapter(BusList)
+                busAdapter!!.openLoadAnimation()
+                busAdapter!!.notifyDataSetChanged()
+                busAdapter!!.setOnItemClickListener { adapter, view, position ->
+                    Log.d("bool", "cam_mr is $position")
+                    val intent = Intent()
+                    intent.putExtra("FirstTime", BusList[position].first_time)
+                    intent.putExtra("SecondTime", BusList[position].second_time)
+                    intent.putExtra("Line", BusList[position].line_num)
+                    setResult(RESULT_OK, intent)
+                    finish()
                 }
 
                 recyclerView!!.adapter = busAdapter
@@ -123,57 +85,19 @@ class BusPopupActivity : Activity() {
                 //button_cam_mr!!.setTextColor(R.color.white!!)
                 button_cam_mr!!.setTextColor(0xffffffff.toInt())
             } else {
-                Log.d("bool", "do #2")
-                when (season) {
-                    NORMAL_ON -> {
-                        busAdapter = BusListAdapter(busList_normal_mr_cam)
-                        busAdapter!!.openLoadAnimation()
-                        busAdapter!!.notifyDataSetChanged()
-                        busAdapter!!.setOnItemClickListener { adapter, view, position ->
-                            Log.d("bool", "cam_mr is $position")
-                            val intent = Intent()
-                            intent.putExtra("line", busList_normal_cam_mr[position].line_num)
-                            setResult(RESULT_OK, intent)
-                            finish()
-                        }
-                    }
-                    NORMAL_CAM_VAC -> {
-                        busAdapter = BusListAdapter(busList_cam_vac_mr_cam)
-                        busAdapter!!.openLoadAnimation()
-                        busAdapter!!.notifyDataSetChanged()
-                        busAdapter!!.setOnItemClickListener { adapter, view, position ->
-                            Log.d("bool", "cam_mr is $position")
-                            val intent = Intent()
-                            intent.putExtra("line", busList_cam_vac_mr_cam[position].line_num)
-                            setResult(RESULT_OK, intent)
-                            finish()
-                        }
-                    }
-                    NORMAL_ALL_VAC -> {
-                        busAdapter = BusListAdapter(busList_holiNall_mr_cam)
-                        busAdapter!!.openLoadAnimation()
-                        busAdapter!!.notifyDataSetChanged()
-                        busAdapter!!.setOnItemClickListener { adapter, view, position ->
-                            Log.d("bool", "cam_mr is $position")
-                            val intent = Intent()
-                            intent.putExtra("line", busList_holiNall_mr_cam[position].line_num)
-                            setResult(RESULT_OK, intent)
-                            finish()
-                        }
-                    }
-                    HOLI_ALL -> {
-                        busAdapter = BusListAdapter(busList_holiNall_mr_cam)
-                        busAdapter!!.openLoadAnimation()
-                        busAdapter!!.notifyDataSetChanged()
-                        busAdapter!!.setOnItemClickListener { adapter, view, position ->
-                            Log.d("bool", "cam_mr is $position")
-                            val intent = Intent()
-                            intent.putExtra("line", busList_holiNall_mr_cam[position].line_num)
-                            setResult(RESULT_OK, intent)
-                            finish()
-                        }
-                    }
-                    else -> finish()
+                var db = MyDatabase(this)
+                var BusList = db.BusTime(season, cam_mr)
+                busAdapter = BusListAdapter(BusList)
+                busAdapter!!.openLoadAnimation()
+                busAdapter!!.notifyDataSetChanged()
+                busAdapter!!.setOnItemClickListener { adapter, view, position ->
+                    Log.d("bool", "cam_mr is $position")
+                    val intent = Intent()
+                    intent.putExtra("FirstTime", BusList[position].first_time)
+                    intent.putExtra("SecondTime", BusList[position].second_time)
+                    intent.putExtra("Line", BusList[position].line_num)
+                    setResult(RESULT_OK, intent)
+                    finish()
                 }
 
                 recyclerView!!.adapter = busAdapter

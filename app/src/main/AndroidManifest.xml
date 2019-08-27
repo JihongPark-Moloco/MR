@@ -30,7 +30,9 @@
         <activity android:name=".BusPopupActivity"
             android:theme="@android:style/Theme.Dialog"/>
 
-        <meta-data android:name="com.kakao.sdk.AppKey" android:value="4efb5277236b3806a73ef84ff377b40a"/>
+        <meta-data
+                android:name="com.naver.maps.map.CLIENT_ID"
+                android:value="8ewdxzp1mg" />
         <service
                 android:name=".MyFirebaseMessagingService">
             <intent-filter>

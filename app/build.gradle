@@ -46,8 +46,9 @@ dependencies {
     implementation 'com.android.support:design:29.0.0'
     implementation 'androidx.core:core-ktx:1.0.0-alpha3'
     implementation 'com.android.support:appcompat-v7:29.0.0'
-    implementation fileTree(dir: 'src\\main\\jniLibs', include: ['*.aar', '*.jar'], exclude: [])
     implementation 'uk.co.markormesher:android-fab:2.5.0'
     implementation 'com.android.volley:volley:1.1.1'
     implementation 'com.roughike:bottom-bar:2.3.1'
+    implementation 'com.naver.maps:map-sdk:3.5.0'
+    implementation 'com.readystatesoftware.sqliteasset:sqliteassethelper:+'
 }
